@@ -1,0 +1,23 @@
+.cv-container {
+  min-height: 1vh;
+  padding-bottom: 20px;
+  margin-bottom: -70px;
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-content {
+  flex: 1;
+}
