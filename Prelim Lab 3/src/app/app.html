@@ -1,0 +1,19 @@
+<nav class="menu">
+  <input type="checkbox" id="menuToggle" class="menu-checkbox" #menuToggle>
+  <label for="menuToggle" class="menu-button" aria-hidden="false">
+    <div class="burger" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </label>
+
+  <div class="menu-links" role="menu" aria-labelledby="menuToggle">
+    <!-- note the (click)="menuToggle.checked = false" -->
+    <a routerLink="/" role="menuitem" (click)="menuToggle.checked = false">Home</a>
+    <a routerLink="data-binding" role="menuitem" (click)="menuToggle.checked = false">Data Binding</a>
+    <a routerLink="/directives" role="menuitem" (click)="menuToggle.checked = false">Directives</a>
+  </div>
+</nav>
+
+
+
+<router-outlet />

@@ -1,0 +1,97 @@
+.menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center; /* keeps burger and menu baseline aligned */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* hide checkbox */
+.menu-checkbox { display: none; }
+
+/* burger button */
+.menu-button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* burger bars */
+.burger { width: 20px; height: 14px; position: relative; }
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #222;
+  position: absolute;
+  left: 0;
+  transition: transform .25s, opacity .25s;
+}
+.burger span:nth-child(1) { top: 0; }
+.burger span:nth-child(2) { top: 6px; }
+.burger span:nth-child(3) { top: 12px; }
+
+/* X animation */
+.menu-checkbox:checked + .menu-button .burger span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-checkbox:checked + .menu-button .burger span:nth-child(2) {
+  opacity: 0;
+}
+.menu-checkbox:checked + .menu-button .burger span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---- Right-side dropdown ---- */
+.menu-links {
+  position: absolute;
+  left: calc(100% + 8px); /* place it to the right of the button with 8px gap */
+  top: 140%;                /* vertically center relative to the button */
+  transform: translateY(-50%);
+  min-width: 160px;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 6px 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .18s ease, max-height .25s ease, transform .18s ease;
+  z-index: 50;
+}
+
+/* show menu when checked */
+.menu-checkbox:checked ~ .menu-links {
+  opacity: 1;
+  max-height: 400px;
+}
+
+/* links */
+.menu-links a {
+  display: block;
+  padding: 10px 14px;
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+}
+.menu-links a:hover,
+.menu-links a:focus {
+  background: rgba(0,0,0,0.03);
+}
+
+/* small screens: if there isn't room on the right, show below the button */
+@media (max-width: 420px) {
+  .menu-links {
+    left: auto;
+    right: 0;
+    top: calc(100% + 8px);
+    transform: none;
+    min-width: 180px;
+  }
+}

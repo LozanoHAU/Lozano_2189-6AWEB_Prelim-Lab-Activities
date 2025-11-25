@@ -1,0 +1,7 @@
+body
+{
+  background-image: url("https://www.zarebasystems.com/media/wysiwyg/zs/cms/learning-center/zs-lc-electric-fencing-for-bulls.jpg");
+
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}

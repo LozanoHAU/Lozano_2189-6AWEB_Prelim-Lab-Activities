@@ -1,0 +1,58 @@
+
+  .stage p {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: auto;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: clamp(2rem, 10vw, 8rem);
+    line-height: 1;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    animation: fadeInUp 900ms cubic-bezier(.22,.9,.28,1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .cv-container {
+  min-height: 1vh;
+  padding-bottom: 20px;
+  margin-bottom: -70px;
+  background-color: white;
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-content {
+  flex: 1;
+}
+
