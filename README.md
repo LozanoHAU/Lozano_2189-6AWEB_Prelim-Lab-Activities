@@ -5,3 +5,5 @@ Prelim Lab Activity 1: Angular Basics
 Prelim Lab Activity 2: Adding Components
 - Making a website with components
 
+Prelim Lab Activity 3: Routing and Data Bindings
+- Making a website with three routes and 5 examples of data bindings
