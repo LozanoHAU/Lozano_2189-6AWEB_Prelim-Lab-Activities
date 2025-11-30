@@ -1,0 +1,42 @@
+<main [class.bg]="bgImage">
+<h1>{{message}}</h1>
+<p [style.color]="textColor">{{title}}</p>
+<p><mark [class.highlighted]="ishighlight">{{description}}</mark></p>
+<div style="display:flex; margin:auto; width:250px;height:250px;">
+<img [src]="imageURL" [width]="w" [height]="h" [alt]="altText">
+</div><br>
+
+<div style="text-align: center;">
+<label for="enter">Name this bull: </label><input [(ngModel)]="yourName" name="enter" placeholder="Enter you name: ">
+<h2>Hello, {{yourName}}!</h2>
+<br>
+<button (click)="increment()">Like</button> &nbsp;
+<button (click)="decrement()">Dislike</button>
+
+<p>Likes: {{ count }}</p>
+
+<br>
+<h1>{{ studentName }}</h1>
+
+<section>
+  <h2>Property Binding</h2>
+  <img [src]="imageUrl" width="200" />
+  <br /><br />
+  <button [disabled]="isDisabled">Submit</button>
+</section>
+<br>
+<h2>Class Binding</h2>
+<p [class.passing]="isPassing" [class.failing]="!isPassing">
+  Student Result: {{ isPassing ? 'Passed' : 'Failed' }}
+</p>
+<br>
+<h2>Style Binding</h2>
+<div
+  [style.background]="boxColor"
+  [style.width]="boxSize"
+  [style.height]="boxSize"
+  class="box">
+</div>
+
+</div>
+</main>

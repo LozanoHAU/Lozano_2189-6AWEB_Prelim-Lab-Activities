@@ -1,0 +1,37 @@
+
+.highlighted {
+  display: inline-block;
+  line-height: 0em;
+  padding-bottom: 0.5em;
+}
+
+.bg{
+  background-color: white;
+padding:5% 10%;
+margin: 0 5%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.passing {
+  color: green;
+  font-weight: bold;
+}
+
+.failing {
+  color: red;
+  font-weight: bold;
+}
+
+.box {
+  border: 2px solid black;
+  margin-top: 10px;
+  margin: auto;
+}

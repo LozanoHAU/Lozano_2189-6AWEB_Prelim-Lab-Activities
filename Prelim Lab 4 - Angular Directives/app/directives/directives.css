@@ -1,0 +1,630 @@
+:host {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card.wide-card {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+  text-align: center;
+}
+
+button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #357abd;
+}
+
+.btn-danger {
+  background-color: #ff5f5f;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #e04a4a;
+}
+
+.btn-toggle {
+  background-color: #555;
+  color: white;
+  width: 100%;
+}
+
+.content-area {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.placeholder-text {
+  color: #ccc;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+  font-weight: bold;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.data-table th {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.data-table td {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+.status-active {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content-area {
+  height: 120px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.sky-scene {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.day-scene {
+  background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+}
+
+.night-scene {
+  background: linear-gradient(to bottom, #0c1445 0%, #1a2980 100%);
+}
+
+.sun {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #FDB813 0%, #FF8C00 100%);
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 30px rgba(255, 200, 0, 0.8);
+  animation: sunRise 0.8s ease-out;
+}
+
+@keyframes sunRise {
+  from {
+    top: 80px;
+    opacity: 0;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+.moon {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: #F4F4F4;
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: moonRise 0.8s ease-out;
+}
+
+.moon::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #D3D3D3;
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+}
+
+.moon::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #D3D3D3;
+  border-radius: 50%;
+  bottom: 12px;
+  right: 12px;
+}
+
+@keyframes moonRise {
+  from {
+    top: 80px;
+    opacity: 0;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  opacity: 0.8;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+}
+
+.cloud1 {
+  width: 40px;
+  height: 15px;
+  top: 35px;
+  left: 20px;
+}
+
+.cloud1::before {
+  width: 25px;
+  height: 15px;
+  top: -8px;
+  left: 8px;
+}
+
+.cloud1::after {
+  width: 20px;
+  height: 12px;
+  top: -6px;
+  left: 20px;
+}
+
+.cloud2 {
+  width: 35px;
+  height: 12px;
+  top: 70px;
+  right: 25px;
+  animation-delay: 1s;
+}
+
+.cloud2::before {
+  width: 20px;
+  height: 12px;
+  top: -6px;
+  left: 6px;
+}
+
+.cloud2::after {
+  width: 18px;
+  height: 10px;
+  top: -5px;
+  left: 16px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.star1 {
+  top: 25px;
+  left: 30px;
+}
+
+.star2 {
+  top: 45px;
+  right: 40px;
+  animation-delay: 0.5s;
+}
+
+.star3 {
+  top: 70px;
+  left: 50px;
+  animation-delay: 1s;
+}
+
+.star4 {
+  top: 55px;
+  right: 60px;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+}
+
+.sticky-note {
+  background: linear-gradient(135deg, #fef9c3 0%, #fde047 100%);
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  position: relative;
+  transform: rotate(-1deg);
+  transition: transform 0.2s;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent #f59e0b transparent transparent;
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.sticky-note:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.sticky-note p {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+}
+
+.sticky-note.success {
+  background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%);
+}
+
+.sticky-note.success::before {
+  border-color: transparent #10b981 transparent transparent;
+}
+
+.sticky-note.fail {
+  background: linear-gradient(135deg, #fee2e2 0%, #fca5a5 100%);
+}
+
+.sticky-note.fail::before {
+  border-color: transparent #ef4444 transparent transparent;
+}
+
+.content-area {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.sheep {
+  width: 80px;
+  height: 60px;
+  position: relative;
+  animation: sheepJump 0.6s ease-out;
+}
+
+@keyframes sheepJump {
+  0% {
+    transform: translateY(100px) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.sheep-body {
+  width: 50px;
+  height: 35px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sheep-head {
+  width: 25px;
+  height: 28px;
+  background: #333;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  bottom: 18px;
+  left: 5px;
+  z-index: 2;
+}
+
+.sheep-eye {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+}
+
+.sheep-eye.left {
+  left: 6px;
+}
+
+.sheep-eye.right {
+  right: 6px;
+}
+
+.sheep-leg {
+  width: 6px;
+  height: 15px;
+  background: #333;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+.sheep-leg.front-left {
+  left: 20px;
+}
+
+.sheep-leg.front-right {
+  left: 32px;
+}
+
+.sheep-leg.back-left {
+  left: 44px;
+}
+
+.sheep-leg.back-right {
+  left: 56px;
+}
+
+.sheep-tail {
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+}
+
+.content-area {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.calendar {
+  width: 200px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin: 20px auto;
+  overflow: visible;
+}
+
+.calendar-rings {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 80px;
+  z-index: 10;
+}
+
+.ring {
+  width: 20px;
+  height: 20px;
+  background: #666;
+  border-radius: 50%;
+  border: 3px solid #999;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-header {
+  height: 40px;
+  background: linear-gradient(to bottom, #e74c3c 0%, #c0392b 100%);
+  border-bottom: 3px solid #333;
+  border-radius: 6px 6px 0 0;
+}
+
+.calendar-body {
+  padding: 10px 20px;
+  background: white;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-name {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 2rem;
+  color: #333;
+  font-weight: normal;
+  text-align: center;
+}
+
+.dancing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wave-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4a90e2;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.wave-text {
+  animation: wave 2s ease-in-out infinite;
+}
+
+.dancing-list li:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dancing-list li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dancing-list li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.dancing-list li:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.dancing-list li:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
