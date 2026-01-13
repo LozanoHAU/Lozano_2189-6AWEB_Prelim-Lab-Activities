@@ -1,0 +1,167 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #f5f5f5;
+    }
+
+    div {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #000000;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      font-size: 28px;
+      text-align: center;
+      padding: 30px;
+      border: 2px solid #000000;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 22px;
+      border: 2px solid #000000;
+      border-radius: 25px;
+      padding: 15px 20px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    h5 {
+      font-size: 16px;
+    }
+
+    h6 {
+      font-size: 14px;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    br {
+      display: block;
+      margin: 10px 0;
+      content: "";
+    }
+
+    div[style*="text-align:center"] {
+      text-align: center;
+    }
+
+    /* Grid structure for grid_struc class */
+    .grid_struc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Make h3 inside grid_struc span full width */
+    .grid_struc h3 {
+      grid-column: 1 / -1;
+    }
+
+    .grid_struc .grid1 {
+      border: 1px solid #000000;
+      padding: 15px;
+      background-color: #ffffff;
+      box-shadow: 2px 2px 0px #000000;
+    }
+
+    /* Single line list for key-value pipe */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    ul li:not(:last-child)::after {
+      content: " | ";
+      margin-left: 15px;
+      color: #666;
+    }
+
+    /* Specific styling for different sections */
+    div > div {
+      border: none;
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    div > div:hover {
+      background-color: transparent;
+    }
+
+    /* Override for grid1 elements */
+    .grid_struc .grid1 {
+      border: 1px solid #000000;
+      padding: 15px;
+      margin: 0;
+    }
+
+    /* Add subtle shadows for depth */
+    body > div {
+      box-shadow: 2px 2px 0px #000000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      div {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 24px;
+        padding: 20px;
+      }
+
+      .grid_struc {
+        grid-template-columns: 1fr;
+      }
+
+      ul li {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      ul li:not(:last-child)::after {
+        content: "";
+        margin-left: 0;
+      }
+    }
