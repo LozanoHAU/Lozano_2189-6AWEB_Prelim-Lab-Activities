@@ -18,7 +18,6 @@ export class Httpclient {
   private commentsUrl = 'https://dummyjson.com/comments';
 
   private usersStorageKey = 'users';
-  // CHANGE THIS KEY to force a fresh fetch
   private commentsStorageKey = 'dummy_comments_v1';
 
   constructor(private http: HttpClient) {}
@@ -41,7 +40,6 @@ export class Httpclient {
     }
 
     return this.http.get<DummyCommentsResponse>(this.commentsUrl).pipe(
-      // CRITICAL: DummyJSON returns { comments: [...] }, not [...]
       map(response => response.comments),
       tap(comments => {
         localStorage.setItem(this.commentsStorageKey, JSON.stringify(comments));
@@ -49,3 +47,4 @@ export class Httpclient {
     );
   }
 }
+
