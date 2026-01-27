@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="table-section">
+    <h2>List from Main</h2>
+
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </table>
+  </div>
+
+<div class="container">
+  <div class="table-section">
+    <h2>Comments</h2>
+
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>ID</th>
+        <th>Post ID</th>
+        <th>Username</th>
+        <th>Body</th>
+        <th>Likes</th> </tr>
+
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.id }}</td>
+        <td>{{ comment.postId }}</td>
+        <td>{{ comment.user.username }}</td>
+        <td>{{ comment.body }}</td>
+        <td>{{ comment.likes }}</td> </tr>
+    </table>
+  </div>
+</div>
+
+<router-outlet />
