@@ -1,0 +1,35 @@
+<div class="home-container">
+  <h1>Welcome to Community Help Desk Portal</h1>
+
+  <p class="welcome-message">
+    Your one-stop solution for community service requests and announcements.
+  </p>
+
+  <div class="current-date">
+    Today: {{ currentDate | date:'fullDate' }}
+  </div>
+
+  <section class="latest-updates">
+    <h2>{{ 'Latest Updates' | uppercase }}</h2>
+
+    <div *ngIf="latestPosts$ | async as posts; else loading">
+      <div *ngIf="posts.length > 0; else noPosts">
+        <div class="post-card" *ngFor="let post of posts">
+          <h3>{{ post.title | titlecase }}</h3>
+          <p class="post-body">{{ post.body | slice:0:100 }}...</p>
+          <span class="post-id">Ticket #{{ post.id }}</span>
+        </div>
+      </div>
+
+      <ng-template #noPosts>
+        <p>No updates available at the moment.</p>
+      </ng-template>
+    </div>
+
+    <ng-template #loading>
+      <div class="loading">Loading latest updates...</div>
+    </ng-template>
+  </section>
+
+  <br /><br />
+</div>

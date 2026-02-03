@@ -1,0 +1,125 @@
+<div class="contact-container">
+  <h1>{{ 'Contact Us' | uppercase }}</h1>
+
+  <div class="contact-content">
+    <div class="form-section">
+      <h2>Get in Touch</h2>
+      <p class="form-description">
+        Fill out the form below and we'll get back to you as soon as possible.
+      </p>
+
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formData.name"
+            required
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            required
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            [(ngModel)]="formData.phone"
+            placeholder="(123) 456-7890"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            [(ngModel)]="formData.subject"
+            required
+            placeholder="What is this regarding?"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="formData.message"
+            required
+            rows="6"
+            placeholder="Please describe your inquiry..."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="submit-btn"
+          [disabled]="!contactForm.form.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div class="preview-section" *ngIf="submittedData">
+      <div class="preview-header">
+        <h2>Form Preview</h2>
+        <button class="clear-btn" (click)="resetPreview()">Clear</button>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-item">
+          <strong>Name:</strong>
+          <span>{{ submittedData.name | uppercase }}</span>
+        </div>
+
+        <div class="preview-item">
+          <strong>Email:</strong>
+          <span>{{ submittedData.email | lowercase }}</span>
+        </div>
+
+        <div class="preview-item" *ngIf="submittedData.phone">
+          <strong>Phone:</strong>
+          <span>{{ submittedData.phone }}</span>
+        </div>
+
+        <div class="preview-item">
+          <strong>Subject:</strong>
+          <span>{{ submittedData.subject | titlecase }}</span>
+        </div>
+
+        <div class="preview-item">
+          <strong>Message:</strong>
+          <p class="message-preview">{{ submittedData.message }}</p>
+        </div>
+
+        <div class="preview-item">
+          <strong>Submitted:</strong>
+          <span>{{ submittedDate | date:'medium' }}</span>
+        </div>
+
+        <div class="success-message">
+          ✓ Form submitted successfully!
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>

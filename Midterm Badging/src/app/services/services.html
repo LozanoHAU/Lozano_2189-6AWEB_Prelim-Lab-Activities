@@ -1,0 +1,40 @@
+<div class="services-container">
+  <div class="header-section">
+    <h1>Services</h1>
+  </div>
+
+  <div class="search-section">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by title or body..."
+      (input)="onSearchChange($any($event.target).value)"
+    />
+  </div>
+
+  <div *ngIf="isLoading$ | async" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading services...</p>
+  </div>
+
+  <div *ngIf="hasError$ | async" class="error-state">
+    <p>⚠️ Error loading services. Please try again later.</p>
+  </div>
+
+  <div *ngIf="filteredPosts$ | async as posts" class="posts-list">
+    <div *ngIf="posts.length === 0 && !(isLoading$ | async)" class="no-results">
+      <p>No services found matching your search.</p>
+    </div>
+
+    <div class="post-item" *ngFor="let post of posts">
+      <div class="post-header">
+        <span class="post-id">Ticket #{{ post.id }}</span>
+        <h3>{{ post.title | titlecase }}</h3>
+      </div>
+      <p class="post-preview">{{ post.body | truncate:150 }}</p>
+      <div class="post-meta">
+        <span>User ID: {{ post.userId }}</span>
+      </div>
+    </div>
+  </div>
+</div>
