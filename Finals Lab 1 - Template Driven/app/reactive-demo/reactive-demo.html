@@ -1,0 +1,137 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <h1 class="navbar-brand" style="margin-left: 100px;">Aaron Daniel Lozano</h1>
+    <ul class="navbar-menu">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Template-Driven</a></li>
+      <li><a routerLink="/reactivedemo" routerLinkActive="active">Reactive Form</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="card form-section">
+    <h2 class="form-title">User Registration Form</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label class="label">Username</label>
+        <input class="input" formControlName="username" />
+        @if (isInvalid('username')) {
+          <small class="error">Username: 4-12 chars (letters/numbers/_)</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="label">Email</label>
+        <input class="input" type="email" formControlName="email" />
+        @if (isInvalid('email')) {
+          <small class="error">Enter a valid email</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="label">Password</label>
+        <input class="input" type="password" formControlName="password" />
+        @if (isInvalid('password')) {
+          <small class="error">Password: 8+ with upper, lower, number</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="label">Role</label>
+        <select class="input" formControlName="role">
+          @for (r of roles; track r) {
+            <option [value]="r">{{ r }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="label">Gender</label>
+        <div class="radio-group">
+          @for (g of genders; track g) {
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" [value]="g" />
+              <span>{{ g }}</span>
+            </label>
+          }
+        </div>
+        @if (isInvalid('gender')) {
+          <small class="error">Please select a gender</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="label">Status</label>
+        <div class="radio-group">
+          @for (s of statuses; track s) {
+            <label class="radio-label">
+              <input type="radio" formControlName="status" [value]="s" />
+              <span>{{ s }}</span>
+            </label>
+          }
+        </div>
+        @if (isInvalid('status')) {
+          <small class="error">Please select a status</small>
+        }
+      </div>
+
+      <div class="form-group full-width">
+        <label class="label">Comment</label>
+        <textarea
+          class="input textarea"
+          placeholder="Have anything to say?"
+          formControlName="comments"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+
+  @if (submittedData) {
+    <div class="card display-section">
+      <h2 class="form-title">Submission</h2>
+
+      <div class="data-item">
+        <span class="data-label">Username:</span>
+        <span class="data-value">{{ submittedData.username }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Email:</span>
+        <span class="data-value">{{ submittedData.email }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Password:</span>
+        <span class="data-value">{{ submittedData.password }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Role:</span>
+        <span class="data-value">{{ submittedData.role }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Gender:</span>
+        <span class="data-value">{{ submittedData.gender }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Status:</span>
+        <span class="data-value">{{ submittedData.status }}</span>
+      </div>
+
+      @if (submittedData.comments) {
+        <div class="data-item">
+          <span class="data-label">Comment:</span>
+          <span class="data-value">{{ submittedData.comments }}</span>
+        </div>
+      }
+    </div>
+  }
+</div>

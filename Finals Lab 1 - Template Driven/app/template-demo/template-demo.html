@@ -1,0 +1,187 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <h1 class="navbar-brand" style="margin-left: 100px;">Aaron Daniel Lozano</h1>
+    <ul class="navbar-menu">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Template-Driven</a></li>
+      <li><a routerLink="/reactivedemo" routerLinkActive="active">Reactive Form</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="form-section">
+    <h2 class="form-title">User Registration Form</h2>
+
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          class="input-box"
+          id="username"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter username"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          class="input-box"
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter email"
+          required
+          email>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          class="input-box"
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter password"
+          required
+          minlength="6">
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select
+          class="input-box"
+          id="role"
+          name="role"
+          [(ngModel)]="role"
+          required>
+          <option value="" disabled selected>Select role</option>
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+          <option value="guest">Guest</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-top: 40px;">
+        <label style="text-align: center;">Gender</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              [(ngModel)]="gender"
+              required>
+            <span>Male</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              [(ngModel)]="gender"
+              required>
+            <span>Female</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="gender"
+              value="other"
+              [(ngModel)]="gender"
+              required>
+            <span>Other</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 40px;margin-bottom:60px;">
+        <label style="text-align: center;">Status</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="status"
+              value="permanent"
+              [(ngModel)]="status"
+              required>
+            <span>Permanent</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="status"
+              value="probationary"
+              [(ngModel)]="status"
+              required>
+            <span>Probationary</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea
+          class="input-box textarea"
+          id="comments"
+          name="comments"
+          [(ngModel)]="comments"
+          placeholder="Enter your comments or notes"
+          rows="4"></textarea>
+      </div>
+
+      <button
+        class="btn"
+        type="submit"
+        [disabled]="!myForm.valid">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div class="display-section" *ngIf="submitted">
+    <h2 class="display-title">Submission</h2>
+
+    <div class="data-container">
+      <div class="data-item">
+        <span class="data-label">Username:</span>
+        <span class="data-value">{{ username }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Email:</span>
+        <span class="data-value">{{ email }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Password:</span>
+        <span class="data-value">{{ password }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Role:</span>
+        <span class="data-value">{{ role }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Gender:</span>
+        <span class="data-value">{{ gender }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Status:</span>
+        <span class="data-value">{{ status }}</span>
+      </div>
+
+      <div class="data-item">
+        <span class="data-label">Comments:</span>
+        <span class="data-value">{{ comments || 'N/A' }}</span>
+      </div>
+    </div>
+  </div>
+</div>
