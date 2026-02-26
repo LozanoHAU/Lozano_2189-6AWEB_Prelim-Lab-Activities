@@ -1,0 +1,96 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$green-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  margin: 0;
+  height: 100%;
+}
+
+body.dark-mode {
+  color-scheme: dark;
+  
+  --mat-sys-primary: #66bb6a;
+  --mat-sys-on-primary: #1a1a1a;
+  --mat-sys-surface: #2d2d2d;
+  --mat-sys-on-surface: #e0e0e0;
+  --mat-sys-surface-variant: #3a3a3a;
+  --mat-sys-on-surface-variant: #b0b0b0;
+  
+  .mat-mdc-select {
+    --mat-select-panel-background-color: #3a3a3a;
+    --mat-select-enabled-trigger-text-color: #e0e0e0;
+  }
+  
+  .mat-datepicker-content {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+  }
+  
+  .mat-mdc-raised-button {
+    --mdc-protected-button-container-color: #66bb6a;
+    --mdc-protected-button-label-text-color: #1a1a1a;
+  }
+  
+  .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #66bb6a;
+  }
+  
+  .mat-mdc-slider {
+    --mdc-slider-handle-color: #66bb6a;
+    --mdc-slider-focus-handle-color: #66bb6a;
+    --mdc-slider-hover-handle-color: #66bb6a;
+    --mdc-slider-active-track-color: #66bb6a;
+    --mdc-slider-inactive-track-color: #4a4a4a;
+    --mdc-slider-with-tick-marks-inactive-container-color: #4a4a4a;
+    --mdc-slider-with-tick-marks-active-container-color: #66bb6a;
+  }
+  
+  .mat-mdc-radio-button {
+    --mdc-radio-selected-icon-color: #66bb6a;
+    --mdc-radio-selected-hover-icon-color: #81c784;
+    --mdc-radio-unselected-icon-color: #b0b0b0;
+  }
+  
+  .mat-mdc-slide-toggle {
+    --mdc-switch-selected-track-color: #66bb6a;
+    --mdc-switch-selected-handle-color: #ffffff;
+    --mdc-switch-unselected-track-color: #4a4a4a;
+    --mdc-switch-unselected-handle-color: #b0b0b0;
+  }
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+mat-grid-tile {
+  .full-width {
+    width: 100%;
+  }
+}

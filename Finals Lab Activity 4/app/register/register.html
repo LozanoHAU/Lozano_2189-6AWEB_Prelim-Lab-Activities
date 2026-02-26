@@ -1,0 +1,134 @@
+<div class="main-container">
+  <div class="form-section">
+    <h2>Registration Form</h2>
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+      <mat-grid-list cols="2" rowHeight="100px" gutterSize="16px">
+        <mat-grid-tile>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter Text" formControlName="userName">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Enter Email" formControlName="email">
+            @if (formdata.controls['email'].invalid && formdata.controls['email'].touched) {
+            <mat-error>
+              Email is required and must be a valid email.
+            </mat-error>
+            }
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Enter password" formControlName="password">
+            @if (formdata.controls['password'].invalid && formdata.controls['password'].touched) {
+            <mat-error>
+              Password is required and must be at least 8 characters long.
+            </mat-error>
+            }
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Address" formControlName="address">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Select a date" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            @if (formdata.get('birthDate')?.hasError('required')) {
+            <mat-error>
+              Birth date is required.
+            </mat-error>
+            }
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="radio-group">
+            <label class="radio-label">Gender</label>
+            <mat-radio-group formControlName="gender" class="gender-radio-group">
+              <mat-radio-button value="male">Male</mat-radio-button>
+              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="other">Other</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="slider-group">
+        <label class="slider-label">
+          Angular Skill Level: {{ formdata.get('angularSkillLevel')?.value }}
+        </label>
+        <mat-slider [min]="minSkillLevel" [max]="maxSkillLevel" [step]="1" [discrete]="true">
+          <input matSliderThumb formControlName="angularSkillLevel">
+        </mat-slider>
+      </div>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formdata.valid">
+          Submit
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="openResetDialog()">
+          Reset Fields
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="data-section">
+    @if (submitted) {
+    <h2>Submission</h2>
+    <div class="data-display">
+      <div class="data-item">
+        <strong>Username:</strong>
+        <span>{{ userName }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Email:</strong>
+        <span>{{ email }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Password:</strong>
+        <span>{{ password }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Gender:</strong>
+        <span>{{ gender }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Address:</strong>
+        <span>{{ address }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Birth Date:</strong>
+        <span>{{ birthDate | date:'shortDate' }}</span>
+      </div>
+      <div class="data-item">
+        <strong>Angular Skill Level:</strong>
+        <span>{{ angularSkillLevel }}</span>
+      </div>
+    </div>
+    } @else {
+    <div class="progress-container">
+      <mat-progress-spinner mode="determinate" [value]="formCompletionPercentage" [diameter]="180" [strokeWidth]="12">
+      </mat-progress-spinner>
+      <div class="progress-text">
+        <span class="percentage">{{ formCompletionPercentage }}%</span>
+        <span class="label">Complete</span>
+      </div>
+    </div>
+    }
+  </div>
+</div>
